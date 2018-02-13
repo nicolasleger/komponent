@@ -35,8 +35,6 @@ module Komponent
           Dir["#{app.config.komponent.root}/components/**/*.yml"]
         )
       end
-
-      app.config.autoload_paths += [app.config.komponent.root]
     end
   end
 end
