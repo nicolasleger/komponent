@@ -2,6 +2,9 @@
 
 ## Upcoming release
 
+**Enhancements**
+- Removed useless `autoload_paths` config definition (it was not taken into account)
+
 ## v1.1.2 (2018-02-13)
 
 **Enhancements:**
