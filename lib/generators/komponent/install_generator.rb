@@ -4,6 +4,8 @@ module Komponent
       class_option :stimulus, type: :boolean, default: false
 
       def check_webpacker_dependency
+        return if komponent_already_installed?
+
         unless File.exist?(webpacker_configuration_file) and File.directory?(webpacker_default_structure)
           raise Thor::Error, dependencies_not_met_error_message
         end
@@ -28,6 +30,11 @@ module Komponent
 
       def create_stimulus_file
         create_file(stimulus_application_path, stimulus? ? stimulus_application_template : "")
+      end
+
+      def append_to_application_configuration
+        application "config.autoload_paths += Dir[config.root.join('#{relative_path_from_rails}/components')]"
+        application "config.i18n.load_path += Dir[config.root.join('#{relative_path_from_rails}/components/**/*.yml')]"
       end
 
       def append_to_application_pack
@@ -74,6 +81,10 @@ module Komponent
 
       def webpacker_default_structure
         Rails.root.join("app", "javascript")
+      end
+
+      def komponent_already_installed?
+        File.directory?(relative_path_from_rails)
       end
 
       def dependencies_not_met_error_message
