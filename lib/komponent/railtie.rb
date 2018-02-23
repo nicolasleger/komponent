@@ -29,12 +29,6 @@ module Komponent
           app.config.komponent.root
         )
       end
-
-      ActiveSupport.on_load :i18n do
-        I18n.load_path.concat(
-          Dir["#{app.config.komponent.root}/components/**/*.yml"]
-        )
-      end
     end
   end
 end
