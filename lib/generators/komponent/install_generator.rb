@@ -12,6 +12,8 @@ module Komponent
       end
 
       def create_root_directory
+        return if File.directory?(komponent_root_directory)
+
         empty_directory(komponent_root_directory)
       end
 
@@ -20,15 +22,21 @@ module Komponent
       end
 
       def move_webpacker_default_structure
+        return unless File.directory?(webpacker_default_structure)
+
         run("mv #{webpacker_default_structure}/* #{komponent_root_directory}")
       end
 
       def create_komponent_default_structure
+        return if File.exist?(components_directory.join("index.js"))
+
         empty_directory(components_directory)
         create_file(components_directory.join("index.js"))
       end
 
       def create_stimulus_file
+        return if File.exist?(stimulus_application_path)
+
         create_file(stimulus_application_path, stimulus? ? stimulus_application_template : "")
       end
 
