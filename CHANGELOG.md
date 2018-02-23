@@ -2,6 +2,14 @@
 
 ## Upcoming release
 
+## v1.1.3 (2018-02-22)
+
+**Enhancements:**
+- Custom destroy for the component generator: you can now safely run `rails d component button`
+
+**Bug fixes:**
+- Fix crash when `nil` is passed to a component
+
 ## v1.1.2 (2018-02-13)
 
 **Enhancements:**
@@ -36,7 +44,6 @@ imported in JavaScript files
 ## v1.0.0 (2018-01-01)
 
 **Enhancements:**
-
 - Components namespacing
 - Implement basic features
 - Implement `render_partial` helper
@@ -44,7 +51,6 @@ imported in JavaScript files
 ## v1.0.0.pre.2 (2017-12-09)
 
 **Enhancements:**
-
 - Lazy-load helpers and configuration
 - Add an install generator (`rails g komponent:install`)
 - Standardize components name (underscore for all except css classes are dasherized)
