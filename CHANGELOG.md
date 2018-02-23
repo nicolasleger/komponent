@@ -2,6 +2,11 @@
 
 ## Upcoming release
 
+**Enhancements:**
+
+- Install generator can be runned several times in order to enable features
+- Autoloading is now appended to `config/application.rb` when `rails g komponent:install` is runned
+
 ## v1.1.3 (2018-02-22)
 
 **Enhancements:**
